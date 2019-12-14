@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appTurismoIqq.Vistas.DetalleDireccionPage"
+             xmlns:i18n="clr-namespace:appTurismoIqq.Helpers;assembly=appTurismoIqq"
+             BindingContext="{Binding Main,Source={StaticResource localizador}}"
+             Title="{i18n:Translate Informacion}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BindingContext="{Binding detalleDireccion}" Padding="5" >
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0"
+                       Grid.Row="0" FontAttributes="Bold"
+                       Text="{i18n:Translate Informacion}"
+                       FontSize="Large" TextColor="Black"
+                       VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+                    <Label Grid.Column="0"
+                       Grid.Row="1" FontAttributes="Bold"
+                       Text="{i18n:Translate Direccion}"
+                       FontSize="Medium" TextColor="Black"
+                       VerticalOptions="CenterAndExpand" ></Label>
+
+                    <Label Grid.Column="1"
+                       Grid.Row="1"  
+                       Text="{Binding DireccionLugar}"
+                       FontSize="Medium" TextColor="Black"
+                       VerticalOptions="FillAndExpand" ></Label>
+
+                    <Label Grid.Column="0"
+                       Grid.Row="2" FontAttributes="Bold"
+                       Text="{i18n:Translate Telefono}"
+                       FontSize="Medium" TextColor="Black"
+                       VerticalOptions="CenterAndExpand" ></Label>
+                    
+                    <Label Grid.Column="1"
+                       Grid.Row="2"  
+                       Text="{Binding Telefono}"
+                       FontSize="Medium" TextColor="Black"
+                       VerticalOptions="FillAndExpand" TextDecorations="Underline"></Label>
+
+                    
+
+                </Grid>
+                <Button Text="{i18n:Translate VerMapa}" FontSize="Small" BackgroundColor="#2098F0" HorizontalOptions="Center"  Command="{Binding MapaCommand2}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

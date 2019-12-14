@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appTurismoIqq.Vistas.DetalleEntidadPage"
+             xmlns:i18n="clr-namespace:appTurismoIqq.Helpers;assembly=appTurismoIqq"
+             BindingContext="{Binding Main,Source={StaticResource localizador}}">
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout BindingContext="{Binding detalleEntidad}" Padding="5" >
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding EjecutarCantidadVistas}" ></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <Label FontAttributes="Bold" Text="{Binding NombreEntidad}" FontSize="Large" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+            <Image Source="{Binding ImageSource}" WidthRequest="150" ></Image>
+            <Label Text="{Binding DescripcionEntidad}" FontSize="Medium" TextColor="Black" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" ></Label>
+            <Label Text="{Binding DescripcionEntidadEng}" FontSize="Medium" TextColor="Black" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" ></Label>
+            <Label Text="{i18n:Translate PaginaWeb}" FontSize="Medium" TextColor="Black" VerticalOptions="FillAndExpand" FontAttributes="Bold"></Label>
+            <Label Text="{Binding PagWebEntidad}" FontSize="Medium" TextColor="Black" VerticalOptions="FillAndExpand" ></Label>
+
+            <Label Text="{i18n:Translate Direcciones}" FontAttributes="Bold" FontSize="Medium" TextColor="Black" ></Label>
+
+            <ListView
+                
+                HasUnevenRows="True"
+                IsRefreshing="{Binding IsRefreshing}"
+                IsPullToRefreshEnabled="True"
+                ItemsSource="{Binding Direcciones}"
+                RefreshCommand="{Binding RefreshCommand}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame  Margin="5">
+                                <Grid>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding DetalleDireccionCommand}"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+
+                                    </Grid.RowDefinitions>
+
+                                    <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Center">
+                                        <Label  
+                                       FontAttributes="Bold" 
+                                        TextColor="Black"
+                                       Text="{Binding direccion}"
+                                       FontSize="18">
+
+
+                                        </Label>
+                                        <Button 
+                                    
+                                        Text="{i18n:Translate Detalles}" BackgroundColor="#FF4089"  FontSize="Small" WidthRequest="100" HeightRequest="40" VerticalOptions="Center"  Command="{Binding DetalleDireccionCommand}"></Button>
+
+
+                                    </StackLayout>
+
+
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+
+            </ListView>
+
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

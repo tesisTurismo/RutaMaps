@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appTurismoIqq.Vistas.RegisterPage"
+             xmlns:i18n="clr-namespace:appTurismoIqq.Helpers;assembly=appTurismoIqq"
+             BindingContext="{Binding Main,Source={StaticResource localizador}}"
+             Title="Registro de Usuario">
+    <ContentPage.Content>
+        <ScrollView
+           BindingContext="{Binding Registros}">
+            <StackLayout Padding="5">
+
+                <Image
+                    Source="usuario"
+                    
+                    WidthRequest="200"
+                    HeightRequest="200">
+
+                </Image>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        FontSize="Medium" TextColor="Black"
+                        Text="{i18n:Translate Nombre}"
+                        VerticalOptions="Center"></Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="{Binding Nombre}"
+                        Placeholder="{i18n:Translate EscribirNombre}"></Entry>
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        FontSize="Medium" TextColor="Black"
+                        Text="{i18n:Translate Apellido}"
+                        VerticalOptions="Center"></Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{Binding Apellido}"
+                        Placeholder="{i18n:Translate EscribirApellido}">
+                    </Entry>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        FontSize="Medium" TextColor="Black"
+                        Text="{i18n:Translate Contraseña}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        IsPassword="True"
+                        Text="{Binding Contraseña}"
+                        Placeholder="{i18n:Translate EscribirContraseña}">
+                    </Entry>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        FontSize="Medium" TextColor="Black"
+                        Text="Repetir"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        IsPassword="True"
+                        Text="{Binding ConfirmarContraseña}"
+                        Placeholder="{i18n:Translate ConfirmarContraseña}">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        FontSize="Medium" TextColor="Black"
+                        Text="{i18n:Translate PaisOrigen}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="4"                    
+                        Text="{Binding PaisOrigen}"
+                        Placeholder="{i18n:Translate EscribirPaisOrigen}">
+                    </Entry>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="5"
+                        FontSize="Medium" TextColor="Black"
+                        Text="{i18n:Translate CiudadOrigen}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        Text="{Binding CiudadOrigen}"
+                        Placeholder="{i18n:Translate EscribirCiudadOrigen}">
+                    </Entry>
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="6"
+                        FontSize="Medium" TextColor="Black"
+                        Text="Nacionalidad"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="6"
+                        Text="{Binding Nacionalidad}"
+                        Placeholder="{i18n:Translate EscribirNacionalidad}">
+                    </Entry>
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="7"
+                        FontSize="Medium" TextColor="Black"
+                        Text="{i18n:Translate Email}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="7"
+                        Text="{Binding Email}"
+                        Placeholder="{i18n:Translate EscribirEmail}">
+                    </Entry>
+                </Grid>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}"
+                    VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
+
+                <Button
+                    BackgroundColor="#2098F0"
+                    BorderRadius="23"
+                    Command="{Binding SaveCommand}"
+                    HeightRequest="46"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="Registrar"
+                    TextColor="White">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
